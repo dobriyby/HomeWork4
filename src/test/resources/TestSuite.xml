@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="OnlinerTest" verbose="1">
+
+	<test name="Search" preserve-order="true">
+		<parameter name="label" value="Samsung" />
+		<parameter name="price" value="1000" />
+		<parameter name="year" value="2013" />
+		<parameter name="diagonFrom" value='39"' />
+		<parameter name="diagonTo" value='42"' />
+		<parameter name="mainMenu" value="Каталог" />
+		<parameter name="catalogMenu" value="Телевизоры" />
+		<classes>
+			<class name="com.dobriy.test.OnlinerSearchTest" />
+		</classes>
+	</test>
+</suite>
