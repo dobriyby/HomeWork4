@@ -143,6 +143,7 @@ public abstract class BaseElement extends BaseEntity {
      */
     public String getText() {
         waitForIsElementPresent();
+        browser.getDriver().executeScript("arguments[0].style.border='3px solid red'", element);
         return element.getText();
     }
 

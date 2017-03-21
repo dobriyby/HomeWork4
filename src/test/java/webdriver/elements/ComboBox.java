@@ -1,14 +1,10 @@
 package webdriver.elements;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ComboBox extends BaseElement {
 	
-	private List<WebElement> listElem = getElement().findElements(By.xpath(".//option"));
-
 	public ComboBox(final By locator, final String name) {
 		super(locator, name);
 	}
@@ -32,13 +28,6 @@ public class ComboBox extends BaseElement {
 	public void setOption(final String option){
 		waitForIsElementPresent();
 	    browser.getDriver().executeScript("arguments[0].style.border='3px solid red'", element);
-		getElement().click();
-		for (WebElement elem: listElem){
-			if (elem.isDisplayed() && elem.getText().equals(option)){
-				logger.info(getElementType()+" '"+name+"' :: "+getLoc("loc.is.select")+" '"+ elem.getText()+"'");
-				elem.click();
-				break;
-			}
-		}
+	    new Select(element).selectByVisibleText(option);;
 	}
 }
