@@ -52,7 +52,6 @@ public class TvPage extends BaseForm {
 	}
 	
 	public void isCorrectPage(final String tvName){
-		assertIsOpen();
 		assertTrue(lblLable.getText().contains(tvName));
 	}
 

@@ -11,8 +11,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.dobriy.pages.elements.Filter;
+
 import webdriver.BaseForm;
-import webdriver.elements.Filter;
 
 public class TvCatalogPage extends BaseForm {
 	
@@ -46,42 +47,48 @@ public class TvCatalogPage extends BaseForm {
 				info("Test "+modelName+" is start!");	
 			    browser.getDriver().executeScript("arguments[0].style.border='3px solid red'", elem);
 				elem.click();
-				for (String winHandle : browser.getDriver().getWindowHandles()) {
-					browser.getDriver().switchTo().window(winHandle);
-				}
+				switchHandle();
 				TvPage tvPage = new TvPage();
-				tvPage.isCorrectPage(modelName);
-				for (Entry<String, String> task : listTestTask.entrySet()) {
-					switch (task.getKey()) {
-					case "label":
-						tvPage.assertLable(task.getValue());
-						info("	Label test SUCCESS! ");
-						break;
-					case "price":
-						tvPage.assertPrice(task.getValue());
-						info("	Price test SUCCESS! ");
-						break;
-					case "diagonFrom":
-						tvPage.assertDiagonFrom(task.getValue());
-						info("	DiagoFrom test SUCCESS! ");
-						break;
-					case "diagonTo":
-						tvPage.assertDiagonTo(task.getValue());
-						info("	DiagoTo test SUCCESS! ");
-						break;
-					case "year":
-						tvPage.assertYear(task.getValue());
-						info("	Year test SUCCESS! ");
-						break;
-					default:
-						info(task.getValue() + " not found");
-						break;
-					}
-				}
+				testPage(tvPage, modelName);
 				browser.getDriver().close();
-				for (String winHandle : browser.getDriver().getWindowHandles()) {
-					browser.getDriver().switchTo().window(winHandle);
-				}
+				switchHandle();
+			}
+		}
+	}
+	
+	private void switchHandle(){
+		for (String winHandle : browser.getDriver().getWindowHandles()) {
+			browser.getDriver().switchTo().window(winHandle);
+		}
+	}
+	
+	private void testPage(TvPage tvPage, String modelName){
+		tvPage.isCorrectPage(modelName);
+		for (Entry<String, String> task : listTestTask.entrySet()) {
+			switch (task.getKey()) {
+			case "label":
+				tvPage.assertLable(task.getValue());
+				info("	Label test SUCCESS! ");
+				break;
+			case "price":
+				tvPage.assertPrice(task.getValue());
+				info("	Price test SUCCESS! ");
+				break;
+			case "diagonFrom":
+				tvPage.assertDiagonFrom(task.getValue());
+				info("	DiagoFrom test SUCCESS! ");
+				break;
+			case "diagonTo":
+				tvPage.assertDiagonTo(task.getValue());
+				info("	DiagoTo test SUCCESS! ");
+				break;
+			case "year":
+				tvPage.assertYear(task.getValue());
+				info("	Year test SUCCESS! ");
+				break;
+			default:
+				info(task.getValue() + " not found");
+				break;
 			}
 		}
 	}

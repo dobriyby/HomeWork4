@@ -1,12 +1,15 @@
-package webdriver.elements;
+package com.dobriy.pages.elements;
 
 import org.openqa.selenium.By;
 import com.dobriy.pages.TvCatalogPage;
 import webdriver.BaseForm;
+import webdriver.elements.BaseElement;
+import webdriver.elements.Button;
 
 public class CatalogMenu extends BaseElement {
 
-	private Button btnTV = new Button(By.xpath("//div[@class='catalog-bar']//li[4]"), "TV Button");
+	//private Button btnTV = new Button(By.xpath("//div[@class='catalog-bar']//a[contains(text(),'Телевизоры')]"), "TV Button");
+	private Button btnTV = new Button(locator.xpath(".//div[@class='catalog-bar']//a[contains(text(),'Телевизоры')]"), "TV Button");
 
 	public CatalogMenu(final By locator, final String name) {
 		super(locator, name);

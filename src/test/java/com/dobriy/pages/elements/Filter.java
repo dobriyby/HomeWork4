@@ -1,8 +1,12 @@
-package webdriver.elements;
+package com.dobriy.pages.elements;
 
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import webdriver.elements.BaseElement;
+import webdriver.elements.ComboBox;
+import webdriver.elements.TextBox;
 
 public class Filter extends BaseElement {
 

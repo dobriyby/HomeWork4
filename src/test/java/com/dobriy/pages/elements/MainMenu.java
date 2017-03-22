@@ -1,14 +1,16 @@
-package webdriver.elements;
+package com.dobriy.pages.elements;
 
 import org.openqa.selenium.By;
 
 import com.dobriy.pages.CatalogPage;
 
 import webdriver.BaseForm;
+import webdriver.elements.BaseElement;
+import webdriver.elements.Button;
 
 public class MainMenu extends BaseElement {
 
-	private Button btnCatalog = new Button(By.xpath("//ul[@class='b-main-navigation']/li[1]"), "Catalog Button");
+	private Button btnCatalog = new Button(By.xpath("//ul[@class='b-main-navigation']//span[contains(text(),'Каталог')]"), "Catalog Button");
 
 	public MainMenu(final By locator, final String name) {
 		super(locator, name);

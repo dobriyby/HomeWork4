@@ -2,8 +2,9 @@ package com.dobriy.pages;
 
 import org.openqa.selenium.By;
 
+import com.dobriy.pages.elements.MainMenu;
+
 import webdriver.BaseForm;
-import webdriver.elements.MainMenu;
 
 public class MainPage extends BaseForm {
 	

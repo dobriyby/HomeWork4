@@ -6,7 +6,7 @@ import com.dobriy.pages.*;
 import webdriver.BaseTest;
 
 public class OnlinerSearchTest extends BaseTest {
-
+	
 	@Override
 	public void runTest() {
 		XmlTest curContext = context.getCurrentXmlTest();

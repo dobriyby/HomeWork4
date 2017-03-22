@@ -1,8 +1,10 @@
 package com.dobriy.pages;
 
 import org.openqa.selenium.By;
+
+import com.dobriy.pages.elements.CatalogMenu;
+
 import webdriver.BaseForm;
-import webdriver.elements.CatalogMenu;
 
 public class CatalogPage extends BaseForm {
 
